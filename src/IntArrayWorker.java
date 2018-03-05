@@ -12,6 +12,38 @@ public class IntArrayWorker {
 		matrix = theMatrix;
 	}
 
+	public int getCount(int toFind){
+		int count = 0;
+		for(int i = 0; i < matrix.length; i++){
+			for(int x = 0; x < matrix[i].length; x++){
+				if(matrix[i][x] == toFind){
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+
+	public int getLargest(){
+		int largest = matrix[0][0];
+		for(int i = 0; i < matrix.length; i++){
+			for(int x = 0; x < matrix[i].length; x++){
+				if(matrix[i][x] > largest){
+					largest = matrix[i][x];
+				}
+			}
+		}
+		return largest;
+	}
+
+	public int getColTotal(int col){
+		int total = 0;
+		for(int i = 0; i < matrix.length; i++){
+			total += matrix[i][col];
+		}
+		return total;
+	}
+
 	/**
 	 * Method to return the total
 	 * 
