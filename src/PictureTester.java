@@ -90,7 +90,23 @@ public class PictureTester
     temple.mirrorTemple();
     temple.explore();
   }
+
+  public static void testMirrorArms()
+  {
+    Picture snowman = new Picture("snowman.jpg");
+    snowman.explore();
+    snowman.mirrorArms();
+    snowman.explore();
+  }
   
+  public static void testMirrorGull()
+  {
+    Picture seagull = new Picture("seagull.jpg");
+    seagull.explore();
+    seagull.mirrorGull();
+    seagull.explore();
+  }
+
   public static void testMirrorDiagonal()
   {
     Picture temple = new Picture("temple.jpg");
@@ -133,10 +149,10 @@ public class PictureTester
     // testMirrorVerticalRightToLeft();
     // testMirrorHorizontal();
     // testMirrorHorizontalBotToTop();
-    testMirrorDiagonal();
+    // testMirrorDiagonal();
     //testMirrorTemple();
-    //testMirrorArms();
-    //testMirrorGull();
+    // testMirrorArms();
+    testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
