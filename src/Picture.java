@@ -293,6 +293,22 @@ public class Picture extends SimplePicture {
 		}
 	}
 
+	public void copyPartial(Picture fromPic, int startRow, int startCol, int fromStartRow, int fromEndRow, int fromStartCol, int fromEndCol) {
+		Pixel fromPixel = null;
+		Pixel toPixel = null;
+		Pixel[][] toPixels = this.getPixels2D();
+		Pixel[][] fromPixels = fromPic.getPixels2D();
+		for (int fromRow = fromStartRow, toRow = startRow; fromRow < fromEndRow
+				&& toRow < toPixels.length; fromRow++, toRow++) {
+			for (int fromCol = fromStartCol, toCol = startCol; fromCol < fromEndCol
+					&& toCol < toPixels[0].length; fromCol++, toCol++) {
+				fromPixel = fromPixels[fromRow][fromCol];
+				toPixel = toPixels[toRow][toCol];
+				toPixel.setColor(fromPixel.getColor());
+			}
+		}
+	}
+
 	/** Method to create a collage of several pictures */
 	public void createCollage() {
 		Picture flower1 = new Picture("flower1.jpg");
@@ -307,6 +323,20 @@ public class Picture extends SimplePicture {
 		this.copy(flower2, 500, 0);
 		this.mirrorVertical();
 		this.write("collage.jpg");
+	}
+
+	public void myCollage(){
+		Picture seagull = new Picture("seagull.jpg");
+		seagull.zeroBlue();
+		Picture flower1 = new Picture("flower1.jpg");
+		Picture butterfly = new Picture("butterfly1.jpg");
+		butterfly.negate();
+		Picture greyFlower = new Picture(flower1);
+		greyFlower.greyscale();
+		this.copy(greyFlower, 0, 100);
+		this.copyPartial(seagull, 100, 200, 225, 320, 230, 350);
+		this.copyPartial(butterfly, 300, 0, 225, 320, 130, 350);
+		this.mirrorVertical();
 	}
 
 	/**
