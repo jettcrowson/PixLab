@@ -358,6 +358,10 @@ public class Pixel {
 		return distance;
 	}
 
+	public int blackAvg(){
+		return (this.getRed() + this.getBlue() + this.getGreen()) / 3;
+	}
+
 	/**
 	 * Method to compute the color distances between two color objects
 	 * 
